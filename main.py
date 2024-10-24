@@ -22,7 +22,16 @@ if n % 2 == 0:
     median = (m0 + m1) / 2
 else:
     median = sorted_scores[(n+1)//2 - 1]
-# print(median)
 
-print(np.median(scores))
-print(scores_df.median())
+# print(median)
+# print(np.median(scores))
+# print(scores_df.median())
+
+series = pd.Series([1,1,1,2,2,3])
+# print(series.mode())
+
+series = pd.Series([1,2,3,4,5])
+# print(series.mode())
+
+print("표본 분산 : {}".format(np.var(series, ddof=0)))
+print("불편 분산 : {}".format(np.var(series, ddof=1)))
