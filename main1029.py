@@ -20,13 +20,13 @@ test_data = multi_hot_sequences(test_data, dimension=NUM_WORDS)
 # plt.show()
 
 baseline_model = keras.Sequential([
-    keras.layers.dense(16, activation='relu',input_shpe=(NUM_WORDS,)),
+    keras.layers.Dense(16, activation='relu',input_shpe=(NUM_WORDS,)),
     keras.layers.Dense(16, activation='relu'),
     keras.layers.Dense(1,activation='sigmoid')
 ])
 
 baseline_model.compile(optimizer='adam',
                        loss='binary_crossentropy',
-                       metrics=['accuracy'.'binary_crossentropy'])
+                       metrics=['accuracy','binary_crossentropy'])
 
 baseline_model.summary()
