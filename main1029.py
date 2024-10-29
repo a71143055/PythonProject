@@ -55,26 +55,11 @@ bigger_model.compile(optimizer='adam',
 
 bigger_model.summary()
 
-baseline_history = baseline_model.fit(train_data,
-                                      train_labels,
-                                      epochs=200,
-                                      batch_size=512,
-                                      validation_data=(test_data, test_labels),
-                                      verbose=2)
+baseline_history = baseline_model.fit(train_data,train_labels,epochs=200,batch_size=512,validation_data=(test_data, test_labels),verbose=2)
 
-smaller_history = smaller_model.fit(train_data,
-                                      train_labels,
-                                      epochs=200,
-                                      batch_size=512,
-                                      validation_data=(test_data, test_labels),
-                                      verbose=2)
+smaller_history = smaller_model.fit(train_data,train_labels,epochs=200,batch_size=512,validation_data=(test_data, test_labels),verbose=2)
 
-bigger_history = bigger_model.fit(train_data,
-                                      train_labels,
-                                      epochs=200,
-                                      batch_size=512,
-                                      validation_data=(test_data, test_labels),
-                                      verbose=2)
+bigger_history = bigger_model.fit(train_data,train_labels,epochs=200,batch_size=512,validation_data=(test_data, test_labels),verbose=2)
 
 def plot_history(histories, key='binary_crossentropy'):
     plt.figure(fgsize=(16,10))
@@ -85,11 +70,11 @@ def plot_history(histories, key='binary_crossentropy'):
         plt.plot(history.epoch, history.history[key],color=val[0].get_color(),
                  label=name.title()+'Train')
 
-    plt.xlabel('Epochs')
-    plt.ylabel(key.replace('_','').title())
-    plt.legend()
-    plt.xlim([0,max(history.epoch)])
-    plt.show()
+        plt.xlabel('Epochs')
+        plt.ylabel(key.replace('_','').title())
+        plt.legend()
+        plt.xlim([0,max(history.epoch)])
+        plt.show()
 
 plot_history([('baseline',baseline_history),
               ('smaller', smaller_history),
