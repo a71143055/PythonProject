@@ -20,7 +20,7 @@ test_data = multi_hot_sequences(test_data, dimension=NUM_WORDS)
 # plt.show()
 
 baseline_model = keras.Sequential([
-    keras.layers.Dense(16, activation='relu',input_shpe=(NUM_WORDS,)),
+    keras.layers.Dense(16, activation='relu',input_shape=(NUM_WORDS,)),
     keras.layers.Dense(16, activation='relu'),
     keras.layers.Dense(1,activation='sigmoid')
 ])
@@ -32,7 +32,7 @@ baseline_model.compile(optimizer='adam',
 baseline_model.summary()
 
 smaller_model = keras.Sequential([
-    keras.layers.Dense(4, activation='relu',input_shpe=(NUM_WORDS,)),
+    keras.layers.Dense(4, activation='relu',input_shape=(NUM_WORDS,)),
     keras.layers.Dense(4, activation='relu'),
     keras.layers.Dense(1,activation='sigmoid')
 ])
@@ -44,7 +44,7 @@ smaller_model.compile(optimizer='adam',
 smaller_model.summary()
 
 bigger_model = keras.Sequential([
-    keras.layers.Dense(512, activation='relu',input_shpe=(NUM_WORDS,)),
+    keras.layers.Dense(512, activation='relu',input_shape=(NUM_WORDS,)),
     keras.layers.Dense(512, activation='relu'),
     keras.layers.Dense(1,activation='sigmoid')
 ])
