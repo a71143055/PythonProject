@@ -27,7 +27,7 @@ else:
 # print(np.median(scores))
 # print(scores_df.median())
 
-series = pd.Series([1,1,1,2,2,3])
+# series = pd.Series([1,1,1,2,2,3])
 # print(series.mode())
 
 series = pd.Series([1,2,3,4,5])
