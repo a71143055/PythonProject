@@ -16,8 +16,11 @@ def multi_hot_sequences(sequences,dimension):
 train_data = multi_hot_sequences(train_data,dimension=NUM_WORDS)
 test_data = multi_hot_sequences(test_data, dimension=NUM_WORDS)
 
-# plt.plot(train_data[0])
-# plt.show()
+plt.plot(train_data[0])
+plt.show()
+
+train_labels = np.array(train_labels).reshape((-1, 1))
+test_labels = np.array(test_labels).reshape((-1, 1))
 
 baseline_model = keras.Sequential([
     keras.layers.Dense(16, activation='relu',input_shape=(NUM_WORDS,)),
@@ -62,7 +65,7 @@ smaller_history = smaller_model.fit(train_data,train_labels,epochs=200,batch_siz
 bigger_history = bigger_model.fit(train_data,train_labels,epochs=200,batch_size=512,validation_data=(test_data, test_labels),verbose=2)
 
 def plot_history(histories, key='binary_crossentropy'):
-    plt.figure(fgsize=(16,10))
+    plt.figure(figsize=(16,10))
 
     for name, history in histories:
         val = plt.plot(history.epoch, history.history['val'+key],
