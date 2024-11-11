@@ -43,14 +43,19 @@ poly_1d = np.poly1d(poly_fit)
 xs = np.linspace(english_scores.min(), english_scores.max())
 ys = poly_1d(xs)
 
-fig = plt.figure(figsize=(8,8))
+fig = plt.figure(figsize=(10,8))
 ax = fig.add_subplot(111)
-ax.scatter(english_scores, math_scores, label = 'score')
-ax.plot(xs,ys,color='gray', label=f'{poly_fit[1]:.2f}+{poly_fit[0]:.2f}x')
+c = ax.hist2d(english_scores, math_scores, bins=[9,8], range=[(35,80),(55,95)])
+
+#ax.plot(xs,ys,color='gray', label=f'{poly_fit[1]:.2f}+{poly_fit[0]:.2f}x')
+
 ax.set_xlabel('english')
 ax.set_ylabel('mathematics')
+ax.set_xticks(c[1])
+ax.set_yticks(c[2])
 
-ax.legend(loc='upper left')
+# ax.legend(loc='upper left')
 
+fig.colorbar(c[3], ax=ax)
 plt.show()
 
