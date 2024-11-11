@@ -74,7 +74,7 @@ for i, data in enumerate(anscombe_data):
 
     ax.set_title(f'data{i+1}')
 
-    c = ax.hist2d(data[:,0], data[:,1], bins=[9, 8], range=[(35, 80), (55, 95)])
+    c = ax.hist2d(data[:,0], data[:,1], bins=[9, 8], range=[(4, 20), (3, 13)])
 
     ax.set_xticks(c[1])
     ax.set_yticks(c[2])
