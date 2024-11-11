@@ -73,7 +73,6 @@ for i, data in enumerate(anscombe_data):
     ax.set_ylim([3,13])
 
     ax.set_title(f'data{i+1}')
-    ax.scatter(data[:,0], data[:,1])
 
     c = ax.hist2d(data[:,0], data[:,1], bins=[9, 8], range=[(35, 80), (55, 95)])
 
