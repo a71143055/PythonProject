@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+
+from main2 import english_scores
 
 pd.options.display.max_columns = None
 pd.options.display.max_rows = None
@@ -33,3 +36,15 @@ print(cov_mat[0,1], cov_mat[1,0])
 np.cov(en_scores, ma_scores, ddof=0)[0,1] / (np.std(en_scores) * np.std(ma_scores))
 np.corrcoef(en_scores, ma_scores)
 print(scores_df.corr())
+
+english_scores = np.array(df['english'])
+math_scores = np.array(df['mathematics'])
+
+fig = plt.figure(figsize=(8,8))
+ax = fig.add_subplot(111)
+
+ax.scatter(english_scores, math_scores)
+ax.set_xlabel('english')
+ax.set_ylabel('mathematics')
+
+plt.show()
