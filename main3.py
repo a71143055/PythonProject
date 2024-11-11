@@ -47,7 +47,7 @@ fig = plt.figure(figsize=(10,8))
 ax = fig.add_subplot(111)
 c = ax.hist2d(english_scores, math_scores, bins=[9,8], range=[(35,80),(55,95)])
 
-#ax.plot(xs,ys,color='gray', label=f'{poly_fit[1]:.2f}+{poly_fit[0]:.2f}x')
+# ax.plot(xs,ys,color='gray', label=f'{poly_fit[1]:.2f}+{poly_fit[0]:.2f}x')
 
 ax.set_xlabel('english')
 ax.set_ylabel('mathematics')
@@ -59,3 +59,25 @@ ax.set_yticks(c[2])
 fig.colorbar(c[3], ax=ax)
 plt.show()
 
+anscombe_data = np.load('./data/ch3_anscombe.npy')
+print(anscombe_data.shape)
+print(anscombe_data[0])
+
+fig,axes = plt.subplots(nrows=2,ncols=2,figsize=(10,10),
+                        sharex=True, sharey=True)
+
+xs = np.linspace(0,30,100)
+for i, data in enumerate(anscombe_data):
+    poly_fit=np.polyfit(data[:,0],data[:,1], 1)
+    poly_1d = np.poly1d(poly_fit)
+    ys = poly_1d(xs)
+
+    ax = axes[i//2,i%2]
+    ax.set_xlim([4,20])
+    ax.set_ylim([3,13])
+    ax.set_title(f'data{i+1}')
+    ax.scatter(data[:,0], data[:,1])
+    ax.plot(xs,ys,color='gray')
+
+    plt.tight_layout()
+    plt.show()
