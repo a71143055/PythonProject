@@ -40,11 +40,19 @@ print(scores_df.corr())
 english_scores = np.array(df['english'])
 math_scores = np.array(df['mathematics'])
 
+poly_fit = np.polyfit(english_scores, math_scores, 1)
+poly_1d = np.poly1d(poly_fit)
+xs = np.linspace(english_scores.min(), english_scores.max())
+ys = poly_1d(xs)
+
 fig = plt.figure(figsize=(8,8))
 ax = fig.add_subplot(111)
-
-ax.scatter(english_scores, math_scores)
+ax.scatter(english_scores, math_scores, label = 'score')
+ax.plot(xs,ys,color='gray', label=f'{poly_fit[1]:.2f}+{poly_fit[0]:.2f}x')
 ax.set_xlabel('english')
 ax.set_ylabel('mathematics')
 
+ax.legend(loc='upper left')
+
 plt.show()
+
