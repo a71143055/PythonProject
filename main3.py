@@ -2,8 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from main2 import english_scores
-
 pd.options.display.max_columns = None
 pd.options.display.max_rows = None
 
