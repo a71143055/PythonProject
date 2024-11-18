@@ -8,7 +8,8 @@ class Truck(Car):
     def load(self,w):
         self.loading+=w
     def info(self):
-        super(Truck,self.info())
-        Car.info(self)
+        #super(Truck,self.info())
+        super(Truck, self).info()
+        #Car.info(self)
         print(f'Capacity : {self.capacity/1000 : .1f} ton')
         print(f'Current Loading : {self.loading} kg')
