@@ -1,5 +1,5 @@
 from Doll import Doll
-import math
+import random as rand
 
 class DollPickUp:
     Dolls = {
@@ -8,5 +8,5 @@ class DollPickUp:
         Doll("카봇저글링", "수컷", 6400, "small")
     }
 
-    def choose(self,num):
-
+    def pickUp(self,num):
+        if rand.randint(100) <= 30:
