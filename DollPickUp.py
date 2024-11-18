@@ -1,4 +1,5 @@
 from Doll import Doll
+import math
 
 class DollPickUp:
     Dolls = {
@@ -6,3 +7,6 @@ class DollPickUp:
         Doll("바비인형", "여성", 7500, "tall"),
         Doll("카봇저글링", "수컷", 6400, "small")
     }
+
+    def choose(self,num):
+
