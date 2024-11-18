@@ -1,7 +1,5 @@
-class Dog:
+from Animal import Animal
 
-    def __init__(self):
-        self.name = "바둑이"
-
-    def Show(self):
-        print(self.name)
+class Dog(Animal):
+    def shout(self):
+        print(f'{self.name} 멍멍~')
