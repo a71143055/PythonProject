@@ -23,3 +23,14 @@ print(df.fillna(0))
 df["preTestScore"].fillna(df["preTestScore"].mean(), inplace=True)
 print(df)
 print(df.groupby("sex")["postTestScore"].transform("mean"))
+df["postTestScore"].fillna(df.groupby("sex")["postTestScore"].transform("mean"), inplace=True)
+print(df)
+edges = pd.DataFrame({'source' : [0,1,2],
+                     'target' : [2,2,3],
+                     'weight' : [3,4,5],
+                     'color' : ['red', 'blue', 'blue']})
+print(edges)
+print(edges.dtypes)
+print(pd.get_dummies((edges)))
+print(pd.get_dummies(edges["color"]))
+print(pd.get_dummies(edges[["color"]]))
