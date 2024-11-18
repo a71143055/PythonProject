@@ -9,9 +9,11 @@ class DollPickUp:
     }
 
     def pickUp(self,num : int):
-        if rand.randint(100) <= 30:
+        if rand.randint(0,100) <= 30:
             print(f'{self.Dolls[num].name}을(를) 뽑았습니다.')
             self.Dolls[num].info()
+        else:
+            print("실패하셨습니다.")
 
     def info(self):
         for i, doll in self.Dolls.items():
