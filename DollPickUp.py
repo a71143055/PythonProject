@@ -15,4 +15,4 @@ class DollPickUp:
 
     def info(self):
         for i, doll in self.Dolls.items():
-            print(f'{i}, 이름 : {doll.name} | 성별 : {doll.gender} | 가격 : {doll.price}원 | 사이즈 : {doll.size}')
+            print(f'{i}. 이름 : {doll.name} | 성별 : {doll.gender} | 가격 : {doll.price}원 | 사이즈 : {doll.size}')
