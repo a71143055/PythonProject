@@ -13,7 +13,6 @@ class DollPickUp:
             print(f'{self.Dolls[num].name}을(를) 뽑았습니다.')
             self.Dolls[num].info()
 
-    def dolls(self):
-        for i, v in enumerate(self.Dolls):
-            doll = self.Dolls[v]
-            print(f'{i}. 이름 : {doll.name} | 성별 : {doll.gender} | 가격 : {doll.price}원 | 사이즈 : {doll.size}')
+    def info(self):
+        for i, doll in self.Dolls.items:
+            print(f'{i}, 이름 : {doll.name} | 성별 : {doll.gender} | 가격 : {doll.price}원 | 사이즈 : {doll.size}')

@@ -1,4 +1,4 @@
 from DollPickUp import DollPickUp
 from Doll import Doll
 
-DollPickUp.dolls(DollPickUp.Dolls)
+DollPickUp.info(DollPickUp.Dolls)
