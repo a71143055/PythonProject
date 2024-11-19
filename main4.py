@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from matplotlib.font_manager import weight_dict
 
 raw_data = {'first_name' : ['Jason', np.nan, 'Tina', 'Jake', 'Amy'],
             'last_name' : ['Miller', np.nan, 'Ali', 'Milner', 'Cooze'],
@@ -34,3 +35,8 @@ print(edges.dtypes)
 print(pd.get_dummies((edges)))
 print(pd.get_dummies(edges["color"]))
 print(pd.get_dummies(edges[["color"]]))
+weight_dict = {3:"M", 4:"L", 5:"XL"}
+edges["weight_sign"] = edges["weight"].map(weight_dict)
+weight_sign = pd.get_dummies(edges["weight_sign"])
+print(weight_sign)
+print(pd.concat([edges, weight_sign], axis=1))
