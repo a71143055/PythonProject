@@ -1,7 +1,42 @@
+import os
 import tensorflow as tf
+from PIL import Image
 from tensorflow import keras
+import numpy as np
 
-(train_images, train_labels),(test_images, test_labels) = keras.datasets.mnist.load_data()
+all_files = []
+for i in range(0,10):
+    path_dir = './images/training/{0}'.format(i)
+    file_list = os.listdir(path_dir)
+    file_list.sort()
+    all_files.append(file_list)
+
+train_images = []
+train_labels = []
+for num in range(0,10):
+    for numbers in all_files[num]:
+        img_path = './images/training/{0}/{1}'.format(num,numbers)
+        print("load :"+img_path)
+        img = Image.open(img_path)
+        train_images.append(np.array(img))
+        train_labels.append(num)
+
+eval_files = []
+for i in range(0,10):
+    path_dir = './images/training/{0}'.format(i)
+    file_list = os.listdir(path_dir)
+    file_list.sort()
+    eval_files.append(file_list)
+
+test_images = []
+test_labels = []
+for num in range(0,10):
+    for numbers in eval_files[num]:
+        img_path = './images/training/{0}/{1}'.format(num,numbers)
+        print("load :"+img_path)
+        img = Image.open(img_path)
+        test_images.append(np.array(img))
+        test_labels.append(num)
 
 train_images = train_images.reshape((60000,28,28,1))
 test_images = test_images.reshape((10000,28,28,1))
