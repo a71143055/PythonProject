@@ -127,3 +127,45 @@ no_show[no_show['waiting_day']<=10]['waiting_day'].hist(alpha=0.7, label='no_sho
 show[show['waiting_day']<=10]['waiting_day'].hist(alpha=0.3, label='show')
 plt.legend()
 plt.show()
+
+no_show['ScheduledDay'].hist(alpha=0.7, label='no_show')
+show['ScheduledDay'].hist(alpha=0.3, label='show')
+plt.legend()
+plt.show()
+
+no_show['AppointmentDay'].hist(alpha=0.7, label='no_show')
+show['AppointmentDay'].hist(alpha=0.3, label='show')
+plt.legend()
+plt.show()
+
+print(df.PatientId.value_counts().iloc[0:10])
+
+data = df[(df['waiting_day']>=50) & (df['No-show']==1)].PatientId.value_counts().iloc[0:10]
+print(data)
+
+sns.barplot(y='waiting_day',x='SMS_received',hue='No-show', data = df)
+plt.show()
+
+# tmp = df[['waiting_day','SMS_received','No-show']].corr()
+# sns.heatmap(tmp, annot=True)
+# plt.show()
+
+sns.countplot(x='No-show', data=df)
+plt.show()
+
+sns.countplot(x='Gender', hue='No-show', data=df)
+plt.show()
+
+F = df[(df['Gender']=='F') & (df['No-show']==1)]['Gender'].value_counts()
+M = df[(df['Gender']=='M') & (df['No-show']==1)]['Gender'].value_counts()
+total_F = df[df['Gender']=='F']['Gender'].value_counts()
+total_M = df[df['Gender']=='M']['Gender'].value_counts()
+
+print(F/total_F)
+print(M/total_M)
+
+sns.countplot(x='Scholarship', hue='No-show', data=df)
+plt.show()
+
+sns.countplot(x='Alcoholism', hue='No-show', data=df)
+plt.show()
