@@ -1,8 +1,6 @@
 from tensorflow import keras
 from tensorflow.keras.datasets import mnist
 
-from main1119_2 import train_labels
-
 (train_images, train_labels),(test_images, test_labels) = mnist.load_data()
 
 train_images = train_images.reshape((60000,28,28,1))
