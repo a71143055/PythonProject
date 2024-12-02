@@ -4,5 +4,5 @@ import matplotlib.pyplot as plt
 from wordcloud import wordcloud
 import pandas as pd
 
-df = pd.read_table('/data/ratings.txt')
+df = pd.read_table('./data/ratings.txt')
 print(df)
